@@ -1,3 +1,8 @@
+export const fetchUser = () =>
+  localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user") as string)
+    : localStorage.clear();
+
 export const userQuery = (id: string) => `*[_type == "user" && _id == '${id}']`;
 
 export const searchQuery = (searchTerm: string) =>

@@ -18,7 +18,7 @@ const MasonryLayout: FC<{ pins: PinData[] }> = ({ pins }) => (
     breakpointCols={breakpointColumnsObj}
   >
     {pins?.map((pin) => (
-      <Pin key={pin._id} pin={pin} className="w-max" />
+      <Pin key={pin._id} pin={pin} />
     ))}
   </Masonry>
 );

@@ -20,6 +20,17 @@ export interface PinData {
   destination: string;
   title: string;
   userId: string;
-  image: string;
+  image: {
+    asset: {
+      url: string;
+    };
+  };
+  save?: Save[];
   postedBy: User;
+}
+
+export interface Save {
+  _key: string;
+  postedBy: User;
+  userId: string;
 }

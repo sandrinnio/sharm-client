@@ -5,7 +5,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import { UserProfile, Pins } from "..";
 import { client } from "../../client";
 import { Sidebar } from "../../components";
-import { userQuery } from "../../utils/data";
+import { userQuery, fetchUser } from "../../utils/data";
 import logo from "../../assets/logo.png";
 import { User, UserInfo } from "../../interfaces";
 
@@ -15,9 +15,7 @@ const Home = () => {
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const userInfo: UserInfo = localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user") as string)
-    : localStorage.clear();
+  const userInfo: UserInfo = fetchUser();
 
   useEffect(() => {
     const getUser = async () => {
