@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MasonryLayout, Spinner } from "..";
 import { client } from "../../client";
-import { feedQuery, searchQuery } from "../../utils/data";
+import { feedQuery, searchQuery } from "../../utils";
 
 const Feed = () => {
   const [loading, setLoading] = useState(true);

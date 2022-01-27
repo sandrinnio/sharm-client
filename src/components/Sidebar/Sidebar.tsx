@@ -4,7 +4,7 @@ import { RiHomeFill } from "react-icons/ri";
 import { IoIosArrowForward } from "react-icons/io";
 import logo from "../../assets/logo.png";
 import { User } from "../../interfaces";
-import { categories } from "../../utils/data";
+import { categories } from "../../utils";
 
 type SidebarProps = {
   user?: User;

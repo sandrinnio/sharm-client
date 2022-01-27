@@ -6,7 +6,7 @@ import { AiTwotoneDelete } from "react-icons/ai";
 import { BsFillArrowUpRightCircleFill } from "react-icons/bs";
 import { client, urlFor } from "../../client";
 import { PinData, UserInfo } from "../../interfaces";
-import { fetchUser } from "../../utils/data";
+import { fetchUser } from "../../utils";
 import { Button } from "../../components";
 
 type PinProps = {
