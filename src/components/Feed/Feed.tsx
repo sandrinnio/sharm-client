@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MasonryLayout, Spinner } from "..";
 import { client } from "../../client";
+import { PinData } from "../../interfaces";
 import { feedQuery, searchQuery } from "../../utils";
 
 const Feed = () => {
   const [loading, setLoading] = useState(true);
-  const [pins, setPins] = useState(null);
+  const [pins, setPins] = useState<PinData[]>();
 
   const { categoryId } = useParams();
 
@@ -14,7 +15,7 @@ const Feed = () => {
     setLoading(true);
 
     const getData = async (query: string) => {
-      const data = await client.fetch(query);
+      const data: PinData[] = await client.fetch(query);
       setPins(data);
       setLoading(false);
     };

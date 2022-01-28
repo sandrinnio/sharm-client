@@ -96,8 +96,6 @@ const CreatePin: FC<CreatePinProps> = ({ user }) => {
     }
   };
 
-  console.log("state: ", state);
-
   return (
     <div className="flex flex-col justify-center items-center mt-5 lg:h-4/5">
       {state?.fields && (

@@ -20,7 +20,7 @@ const Home = () => {
   useEffect(() => {
     const getUser = async () => {
       const query = userQuery(userInfo?.googleId);
-      const data = await client.fetch(query);
+      const data: User[] = await client.fetch(query);
       setUser(data[0]);
     };
 
