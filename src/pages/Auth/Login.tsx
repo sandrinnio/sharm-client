@@ -7,6 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { client } from "../../client";
 import sharmVideo from "../../assets/share.mp4";
 import logo from "../../assets/logowhite.png";
+import { Button } from "../../components";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -49,14 +50,13 @@ const Login = () => {
             <GoogleLogin
               clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID || ""}
               render={(renderProps) => (
-                <button
+                <Button
                   type="button"
                   className="bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none"
                   onClick={renderProps.onClick}
                   disabled={renderProps.disabled}
-                >
-                  <FcGoogle className="mr-4" /> Sign in with Google
-                </button>
+                  text={<FcGoogle className="mr-4" /> + "Sign in with Google"}
+                />
               )}
               onSuccess={onSuccess}
               cookiePolicy={"single_host_origin"}

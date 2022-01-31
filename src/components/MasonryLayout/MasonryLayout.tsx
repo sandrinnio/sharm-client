@@ -12,7 +12,7 @@ const breakpointColumnsObj = {
   500: 1,
 };
 
-const MasonryLayout: FC<{ pins: PinData[] }> = ({ pins }) => (
+const MasonryLayout: FC<{ pins?: PinData[] }> = ({ pins }) => (
   <Masonry
     className="flex animate-slide-fwd"
     breakpointCols={breakpointColumnsObj}

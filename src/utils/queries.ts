@@ -1,6 +1,7 @@
 import { PinData } from "../interfaces";
 
-export const userQuery = (id: string) => `*[_type == "user" && _id == '${id}']`;
+export const userQuery = (id?: string) =>
+  `*[_type == "user" && _id == '${id}']`;
 
 export const searchQuery = (searchTerm: string) =>
   `*[_type == "pin" && title match "${searchTerm}*" || category match "${searchTerm}*" || about match "${searchTerm}*"] {
@@ -111,7 +112,7 @@ export const pinDetailMorePinQuery = (
   }`;
 
 export const userCreatedPinsQuery = (
-  id: string
+  id?: string
 ) => `*[ _type == 'pin' && userId == '${id}'] | order(_createdAt desc) {
       image {
         asset -> {
@@ -135,7 +136,7 @@ export const userCreatedPinsQuery = (
     }`;
 
 export const userSavedPinsQuery = (
-  id: string
+  id?: string
 ) => `*[_type == 'pin' && '${id}' in save[].userId ] | order(_createdAt desc) {
       image {
         asset -> {

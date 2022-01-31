@@ -4,7 +4,7 @@ import { AiOutlineCloudUpload } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 import { SanityImageAssetDocument } from "@sanity/client";
 import { client } from "../../client";
-import { Spinner } from "../../components";
+import { Button, Spinner } from "../../components";
 import { categories } from "../../utils";
 import { User } from "../../interfaces";
 
@@ -133,13 +133,12 @@ const CreatePin: FC<CreatePinProps> = ({ user }) => {
             {state?.imageAsset && (
               <div className="relative h-full">
                 <img src={state.imageAsset.url} alt="uploaded-pic" />
-                <button
+                <Button
                   type="button"
                   className="absolute bottom-3 right-3 p-3 rounded-full bg-white text-xl cursor-pointer outline-none hover:shadow-md transition-all duration-500 ease-in-out"
                   onClick={() => setState({ ...state, imageAsset: null })}
-                >
-                  <MdDelete />
-                </button>
+                  text={<MdDelete />}
+                />
               </div>
             )}
           </div>
@@ -204,13 +203,12 @@ const CreatePin: FC<CreatePinProps> = ({ user }) => {
               </select>
             </div>
             <div className="flex justify-end items-end mt-5">
-              <button
+              <Button
                 type="button"
                 onClick={savePin}
                 className="bg-red-500 text-white font-bold p-2 rounded-full w-28 outline-none"
-              >
-                Save Pin
-              </button>
+                text="Save Pin"
+              />
             </div>
           </div>
         </div>

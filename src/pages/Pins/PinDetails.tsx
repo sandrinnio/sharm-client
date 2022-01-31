@@ -2,7 +2,7 @@ import { FC, useEffect, useState, useCallback } from "react";
 import { MdDownloadForOffline } from "react-icons/md";
 import { Link, useParams } from "react-router-dom";
 import { v4 } from "uuid";
-import { MasonryLayout, Spinner } from "../../components";
+import { Button, MasonryLayout, Spinner } from "../../components";
 import { client, urlFor } from "../../client";
 import { pinDetailMorePinQuery, pinDetailQuery } from "../../utils";
 import { PinData, User } from "../../interfaces";
@@ -13,6 +13,7 @@ type PinDetailsProps = {
 
 const PinDetails: FC<PinDetailsProps> = ({ user }) => {
   const { id } = useParams();
+
   const [pins, setPins] = useState<PinData[]>();
   const [pinDetail, setPinDetail] = useState<PinData>();
   const [comment, setComment] = useState("");
@@ -148,13 +149,12 @@ const PinDetails: FC<PinDetailsProps> = ({ user }) => {
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
               />
-              <button
+              <Button
                 type="button"
                 className="bg-red-500 text-white rounded-full px-6 py-2 font-semibold text-base outline-none"
                 onClick={addComment}
-              >
-                {addingComment ? "Doing..." : "Done"}
-              </button>
+                text={addingComment ? "Doing..." : "Done"}
+              />
             </div>
           </div>
         </div>
