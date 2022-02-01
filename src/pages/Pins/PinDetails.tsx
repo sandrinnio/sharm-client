@@ -27,14 +27,10 @@ const PinDetails: FC<PinDetailsProps> = ({ user }) => {
 
       setPinDetail(data[0]);
 
-      console.log("data: ", data);
-
       if (data[0]) {
         query = pinDetailMorePinQuery(data[0]);
 
         const res: PinData[] = await client.fetch(query);
-
-        console.log("res: ", res);
 
         setPins(res);
       }

@@ -9,7 +9,7 @@ const Feed = () => {
   const [loading, setLoading] = useState(true);
   const [pins, setPins] = useState<PinData[]>();
 
-  const { categoryId } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     setLoading(true);
@@ -20,18 +20,18 @@ const Feed = () => {
       setLoading(false);
     };
 
-    if (categoryId) {
-      const query = searchQuery(categoryId);
+    if (id) {
+      const query = searchQuery(id);
       getData(query);
     } else {
       getData(feedQuery);
     }
-  }, [categoryId]);
-
-  console.log("pins: ", pins);
+  }, [id]);
 
   if (loading)
     return <Spinner message="We are adding new ideas to your feed!" />;
+
+  if (!pins?.length) return <h2>No pins available</h2>;
 
   return <>{pins && <MasonryLayout pins={pins} />}</>;
 };

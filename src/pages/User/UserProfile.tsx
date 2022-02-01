@@ -38,7 +38,7 @@ const UserProfile = () => {
   }, [id]);
 
   const fetchPins = async (query: string) => {
-    const data = await client.fetch(query);
+    const data: PinData[] = await client.fetch(query);
     setPins(data);
   };
 

@@ -28,7 +28,9 @@ const Pins: FC<PinsProps> = ({ user }) => {
           <Route path="/create-pin" element={<CreatePin user={user} />} />
           <Route
             path="/search"
-            element={<Search setSearchTerm={setSearchTerm} />}
+            element={
+              <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            }
           />
         </Routes>
       </div>
